@@ -156,8 +156,8 @@ for file in os.listdir(path):
         result = data
     L = 256
     noverlap = 84
-    starts, spec = create_spectrogram(result,L,noverlap = noverlap )
-    d[file] = [starts,spec]
+    spec = mfcc(result,L,noverlap = noverlap )
+    d[file] = spec
     #print(file)
 f = open('noise_eight.pkl','wb')
 pickle.dump(d,f)
