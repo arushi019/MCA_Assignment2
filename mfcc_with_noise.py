@@ -156,7 +156,7 @@ for file in os.listdir(path):
         result = data
     L = 256
     noverlap = 84
-    spec = mfcc(result,L,noverlap = noverlap )
+    spec = mfcc(result)
     d[file] = spec
     #print(file)
 f = open('noise_eight.pkl','wb')
