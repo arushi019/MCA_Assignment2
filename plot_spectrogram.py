@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.io import wavfile
-
+import seaborn as sns
 name = '00b01445_nohash_0.wav'
 cl = 'two'
 path = 'training/'+cl+'/'+name
