@@ -65,7 +65,7 @@ for file in os.listdir(path):
         result = data
     L = 256
     noverlap = 84
-    spec = get_spec(result,L,noverlap = noverlap )
+    spec = create_spectrogram(result,L,noverlap = noverlap )
     d[file] = spec
     #print(file)
 f = open('noise_one.pkl','wb')

@@ -147,19 +147,17 @@ for file in os.listdir(path):
     r1 = random.randint(1,10)
     r2 = random.randint(0,5)
     result = 0
-    if r1>5:
+    if r1>7:
         #print(file,r2)
         data2 = noise[r2]
-        #print(len(data),len(data2))
-        #data2 = np.tile(data2,len(data)//len(data2))
         min_size = min(len(data), len(data2))
         result = 0.6 * data[:min_size] + 0.4 * data2[:min_size]
     else:
         result = data
-    #print(result.shape)
-    spec = mfcc(result)
-    print(spec.shape)
-    d[file] = spec
+    L = 256
+    noverlap = 84
+    starts, spec = create_spectrogram(result,L,noverlap = noverlap )
+    d[file] = [starts,spec]
     #print(file)
 f = open('noise_eight.pkl','wb')
 pickle.dump(d,f)
